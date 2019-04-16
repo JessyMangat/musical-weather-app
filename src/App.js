@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from './Components/Form';
 import HeroText from './Components/HeroText';
+import Geolocation from './Components/Geolocation';
+
+
 
 class App extends Component{
     render(){
@@ -9,7 +11,7 @@ class App extends Component{
       <div className ="App">
       <div className="jumbotron jumbotron-fluid homepage-hero">
       <HeroText />
-      <Form />
+      <Geolocation />
       </div>
       </div>
 

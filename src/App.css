@@ -6,12 +6,14 @@
     color : white;
   }
 
-.homepage-hero{
+
+.App .homepage-hero{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/Hero.jpg");
+    margin-bottom : 0;
 }
 
 .hero-text{
-    margin-top : 20vh;
+    margin-top : 30vh;
 }
 
 .wrapper .jumbotron-fluid{
