@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import HeroText from './Components/HeroText';
 import Geolocation from './Components/Geolocation';
+import Button from "./Components/Button";
 
 
 
@@ -12,6 +13,7 @@ class App extends Component{
       <div className="jumbotron jumbotron-fluid homepage-hero">
       <HeroText />
       <Geolocation />
+      <Button />
       </div>
       </div>
 

@@ -20,3 +20,9 @@
     margin-bottom : 0;
 }
 
+.Button .btn{
+    margin-top : 3vh;
+    width : 20vh;
+    border-radius: 0;
+    color : white;
+}
