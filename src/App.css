@@ -13,7 +13,7 @@
 }
 
 .App .weather-hero{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroThunder.jpeg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroSnow.jpeg");
     margin-bottom : 0;
 }
 
@@ -30,4 +30,21 @@
     width : 20vh;
     border-radius: 0;
     color : white;
+}
+
+.Button .back-button {
+        border: none;
+        padding: 0;
+        background: none;
+        color : white;
+        font-size : 2rem;
+      }
+
+.weather-info{
+    margin-top : 10vh;
+}
+
+.container h3{
+    font-size : 2rem;
+    font-weight : normal;
 }

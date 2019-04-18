@@ -27,9 +27,9 @@ class App extends Component{
       return(
       <div className ="App">      
       {this.state.isShowingWeather ? (
-        <div onClick={this.removeWeather}>
-        <Weather />
-        </div>
+         <div onClick={this.removeWeather}>
+         <Weather />
+         </div>
       ) : (
         <div className ="jumbotron jumbotron-fluid homepage-hero">
         <HeroText />
