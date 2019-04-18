@@ -12,6 +12,11 @@
     margin-bottom : 0;
 }
 
+.App .weather-hero{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroThunder.jpeg");
+    margin-bottom : 0;
+}
+
 .hero-text{
     margin-top : 30vh;
 }

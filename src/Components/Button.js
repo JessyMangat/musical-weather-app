@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
 
+
+
 export default class Button extends Component{
 
-    constructor(props){
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
-    handleClick(){
-        alert('This button is functional');
-        
-    }
-
-    render(){
+   
+    render() {
       return(
-      <div className ="Button container">
+      <div className="Button container">
       <div className="col-12">
-      <button onClick={this.handleClick} type="button" class="btn btn-outline-primary">Get the Weather</button>
+      <button type="button" className="btn btn-outline-primary">Get the weather</button>
       </div>
       </div>
-
-      );
+            );
     }
+
+
 }
 
 
