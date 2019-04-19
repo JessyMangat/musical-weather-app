@@ -9,11 +9,10 @@ import Weather from './Components/Weather';
 class App extends Component{
     constructor(props) {
         super(props);
-        this.state = { isShowingWeather: false, weatherCondition: 'hero' };
+        this.state = { isShowingWeather: false, weatherCondition: null };
         this.showWeather = this.showWeather.bind(this);
         this.removeWeather = this.removeWeather.bind(this);
         this.findCondition = this.findCondition.bind(this);
-        
     }
 
 
@@ -28,6 +27,7 @@ class App extends Component{
 
     findCondition(){
       return 'snow';
+      //function will be expanded upon once weather is working correctly
     }
 
     render(){

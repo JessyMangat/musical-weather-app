@@ -12,7 +12,11 @@ class Geolocation extends Component {
     }
   
     render() {
-        console.log("results ", this.state.place)
+ 
+      if (this.state.place != null){
+      let geoloc = this.state.place.coordinates.lat + ',' + this.state.place.coordinates.lng;
+        console.log(geoloc);
+      }
       return (
         <div className="container">
         <div className="col-12">
@@ -25,10 +29,11 @@ class Geolocation extends Component {
             onChange={(e) => { this.setState({ place: e }) }} />
         </div>
         </div>
+        
   
-      )
+      )}
     } 
-  }
+  
   
   
   export default Geolocation;
