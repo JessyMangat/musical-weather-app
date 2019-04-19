@@ -7,13 +7,18 @@
   }
 
 
-.App .homepage-hero{
+.App .hero{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/Hero.jpg");
     margin-bottom : 0;
 }
 
-.App .weather-hero{
+.App .snow{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroSnow.jpeg");
+    margin-bottom : 0;
+}
+
+.App .rain{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroRain.jpeg");
     margin-bottom : 0;
 }
 
@@ -25,24 +30,13 @@
     margin-bottom : 0;
 }
 
-.Button .btn{
+.button .btn{
     margin-top : 3vh;
     width : 20vh;
     border-radius: 0;
     color : white;
 }
 
-.Button .back-button {
-        border: none;
-        padding: 0;
-        background: none;
-        color : white;
-        font-size : 2rem;
-      }
-
-.weather-info{
-    margin-top : 10vh;
-}
 
 .container h3{
     font-size : 2rem;
