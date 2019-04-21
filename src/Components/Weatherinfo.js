@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class Weather extends Component{
+export default class Weatherinfo extends Component{
 
    
     render() {
@@ -15,7 +15,7 @@ export default class Weather extends Component{
         <h3>It's Sunny Outside</h3>
         </div>
         <div className="col-4">
-        <h3>10% Chance of Precip</h3>
+        <h3>Precipitation: 0%</h3>
         </div>
         </div>
         </div>
@@ -24,3 +24,5 @@ export default class Weather extends Component{
 
 
 }
+
+// https://api.darksky.net/forecast/ce78886966dcf6660a6c4074d0de2700/{geoloc}

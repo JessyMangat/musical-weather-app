@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Geolocation from './Components/Geolocation';
-import Weather from './Components/Weather';
+import Weatherinfo from './Components/Weatherinfo';
 
 
 
@@ -35,7 +35,7 @@ class App extends Component{
       <div className ="App">      
       {this.state.isShowingWeather ? (
         <div className={`jumbotron jumbotron-fluid ${this.state.weatherCondition}`}>
-         <Weather />
+         <Weatherinfo />
         <div className="button container">
         <button onClick={this.removeWeather} type="button" className="btn btn-outline-primary">Try a different location</button>
          </div>

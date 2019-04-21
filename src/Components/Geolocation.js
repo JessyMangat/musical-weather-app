@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { GoogleComponent } from 'react-google-location';
+import Weatherfetch from './Weatherfetch';
+
 const API_KEY = "AIzaSyBc3yXn2btOPZQ6GjyFbgfW8w9lDCZ1vMg";
+
+
 
 
 class Geolocation extends Component {
@@ -12,11 +16,26 @@ class Geolocation extends Component {
     }
   
     render() {
- 
       if (this.state.place != null){
       let geoloc = this.state.place.coordinates.lat + ',' + this.state.place.coordinates.lng;
-        console.log(geoloc);
+      let placeName = this.state.place.place;
+      
+
+      if (geoloc !== 'undefined,undefined'){
+        return(
+          <div className="container">
+          <Weatherfetch 
+          geoloc={geoloc} 
+          placeName={placeName}/>
+          
+          </div>
+        )
       }
+     
+        
+      }
+      
+      
       return (
         <div className="container">
         <div className="col-12">
