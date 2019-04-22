@@ -5,17 +5,18 @@ export default class Weatherinfo extends Component{
 
    
     render() {
+      console.log(this.props.temp, this.props.condition, this.props.precip)
       return(
         <div className="container">
         <div className="row">
         <div className="col-4">
-        <h3>18&#8451;</h3>
+        <h3>{this.props.temp}&#8451;</h3>
         </div>
         <div className="col-4">
-        <h3>It's Sunny Outside</h3>
+        <h3>{this.props.condition}</h3>
         </div>
         <div className="col-4">
-        <h3>Precipitation: 0%</h3>
+        <h3>Precipitation: {this.props.precip}%</h3>
         </div>
         </div>
         </div>

@@ -1,8 +1,10 @@
 import React from 'react';
+import Weatherinfo from './Weatherinfo'
 
 class Weatherfetch extends React.Component {
     constructor(props) {
         super(props);
+        this.weatherStatus = this.weatherStatus.bind(this);
         this.state = {
             temperature: undefined,
             precip: undefined,
@@ -20,19 +22,41 @@ class Weatherfetch extends React.Component {
           .then(() => this.setState ({temperature: forecast.currently.temperature}))
           .then(() => this.setState ({condition: forecast.currently.icon}))
           .then(() => this.setState ({ precip: forecast.currently.precipProbability}))
-          .then(() => alert('Damn bruh'))
         }
       }
     
+      weatherStatus(){
+        console.log(this.state.temperature)
+        if(this.props.parentState === false){
 
+          return(
+            <div className= "container">
+            <h2>{this.props.placeName}</h2>
+            </div>
+            
+          )
+        }
+
+        else{
+          return(
+            <Weatherinfo 
+
+            temp={this.state.temperature}
+            precip={this.state.precip}
+            condition={this.state.condition}
+            />
+          )
+        }
+
+      }
 
   render() {
    
     return (
-            <div className = "container">
-            <h2>{this.props.placeName}</h2>
-            </div>
-    );
+
+           
+          this.weatherStatus()
+            );
   }
 }
 

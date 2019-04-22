@@ -14,19 +14,19 @@ class Geolocation extends Component {
         place: null,
       };
     }
+    
   
     render() {
       if (this.state.place != null){
       let geoloc = this.state.place.coordinates.lat + ',' + this.state.place.coordinates.lng;
-      let placeName = this.state.place.place;
-      
 
       if (geoloc !== 'undefined,undefined'){
         return(
           <div className="container">
           <Weatherfetch 
-          geoloc={geoloc} 
-          placeName={placeName}/>
+          geoloc={this.state.place.coordinates.lat + ',' + this.state.place.coordinates.lng} 
+          placeName={this.state.place.place}
+          parentState={this.props.parentState}/>
           
           </div>
         )
