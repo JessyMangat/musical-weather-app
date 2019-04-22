@@ -25,4 +25,4 @@ export default class Weatherinfo extends Component{
 
 }
 
-// https://api.darksky.net/forecast/ce78886966dcf6660a6c4074d0de2700/{geoloc}
+
