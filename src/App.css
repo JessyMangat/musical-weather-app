@@ -12,16 +12,6 @@
     margin-bottom : 0;
 }
 
-.App .snow{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroSnow.jpeg");
-    margin-bottom : 0;
-}
-
-.App .rain{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/HeroRain.jpeg");
-    margin-bottom : 0;
-}
-
 .hero-text{
     margin-top : 30vh;
 }
@@ -41,4 +31,60 @@
 .container h3{
     font-size : 2rem;
     font-weight : normal;
+}
+
+
+.App .clear-day{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/clear-day.jpg");
+    margin-bottom : 0;
+}
+
+.App .clear-night{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/clear-night.jpeg");
+    margin-bottom : 0;
+}
+
+.App .rain{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/rain.jpeg");
+    margin-bottom : 0;
+}
+.App .snow{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/snow.jpeg");
+    margin-bottom : 0;
+}
+.App .sleet{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/snow.jpeg");
+    margin-bottom : 0;
+}
+.App .wind{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/tornado.jpg");
+    margin-bottom : 0;
+}
+.App .fog{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/fog.jpg");
+    margin-bottom : 0;
+}
+.App .cloudy{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/cloudy.jpeg");
+    margin-bottom : 0;
+}
+.App .partly-cloudy-day{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/partly-cloudy-day.jpeg");
+    margin-bottom : 0;
+}
+.App .partly-cloudy-night{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/partly-cloudy-night.jpeg");
+    margin-bottom : 0;
+}
+.App .hail{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/snow.jpeg");
+    margin-bottom : 0;
+}
+.App .thunderstorm{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/thunderstorm.jpeg");
+    margin-bottom : 0;
+}
+.App .tornado{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./Images/tornado.jpg");
+    margin-bottom : 0;
 }

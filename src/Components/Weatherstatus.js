@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Geolocation from './Geolocation';
-import Weatherfetch from './Weatherfetch';
+import Weatherform from './Weatherform';
+import Weatherinfo from './Weatherinfo';
 
 
 
@@ -9,55 +9,61 @@ class Weatherstatus extends Component{
     constructor(props) {
         super(props);
         this.state = { 
-        isShowingWeather: false, 
-        weatherCondition: null };
-        this.showWeather = this.showWeather.bind(this);
+        isShowingWeather: false,
+        temp: null,
+        condition: null,
+        precip: null};
         this.removeWeather = this.removeWeather.bind(this);
-        this.findCondition = this.findCondition.bind(this);
+        this.weatherConvert = this.weatherConvert.bind(this);
     }
 
-
-    showWeather() {
-      this.setState({ weatherCondition: this.findCondition()});
-      this.setState({ isShowingWeather: true });
+    weatherFetch = async (geoloc) => {
+      
+      
+      const api_call = await fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ce78886966dcf6660a6c4074d0de2700/${geoloc}`);
+      const response = await api_call.json();
+      this.weatherConvert(response)
+      this.setState({isShowingWeather : true})
+    
     }
+
+    weatherConvert(response){
+
+      let tempC = response.currently.temperature;
+      tempC = tempC -  32;
+      tempC = tempC * 0.55555555555;
+      tempC = Math.round(tempC);
+      this.setState({temp: tempC});
+
+      let precipPercent = response.currently.precipProbability;
+      precipPercent = precipPercent * 100;
+      this.setState ({precip: precipPercent});
+
+      this.setState({condition: response.currently.icon})
+    }
+
+ 
 
     removeWeather(){
+      this.setState({temp: null})
+      this.setState({condition : null})
+      this.setState({precip : null})
       this.setState({ isShowingWeather: false});
-    }
-
-    findCondition(){
-      return 'snow';
-      //function will be expanded upon once weather is working correctly
     }
 
     render(){
       return(
       <div className ="App">      
       {this.state.isShowingWeather ? (
-        <div className={`jumbotron jumbotron-fluid ${this.state.weatherCondition}`}>
-         <Weatherfetch/>
-        <div className="button container">
-        <button onClick={this.removeWeather} type="button" className="btn btn-outline-primary">Try a different location</button>
-         </div>
-         </div>
+        <Weatherinfo 
+        temp = {this.state.temp}
+        condition = {this.state.condition}
+        precip = {this.state.precip}
+        removeWeather ={this.removeWeather}/>
            
       ) : (
-        <div className ="jumbotron jumbotron-fluid hero">
-            <div className="container hero-text">
-      <div className="col-12">
-    <h1 className="display-4">Musical Weather App</h1>
-    <p>The perfect song for the weather outside.</p>
-    </div>
-  </div> 
-      <Geolocation 
-      parentState ={this.state.isShowingWeather}/>
-      <div className="button container">
-      <div className="col-12">
-      <button onClick={this.showWeather} type="button" className="btn btn-outline-primary">Get the weather</button>
-      </div>
-      </div>
-      </div>
+       <Weatherform 
+       weatherFetch = {this.weatherFetch}/>
       )}
       </div>
       );
