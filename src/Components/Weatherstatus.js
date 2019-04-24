@@ -12,9 +12,11 @@ class Weatherstatus extends Component{
         isShowingWeather: false,
         temp: null,
         condition: null,
+        convertedCondtition: null,
         precip: null};
         this.removeWeather = this.removeWeather.bind(this);
         this.weatherConvert = this.weatherConvert.bind(this);
+        this.convertCondition = this.convertCondition.bind(this);
     }
 
     weatherFetch = async (geoloc) => {
@@ -22,7 +24,8 @@ class Weatherstatus extends Component{
       
       const api_call = await fetch(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/ce78886966dcf6660a6c4074d0de2700/${geoloc}`);
       const response = await api_call.json();
-      this.weatherConvert(response)
+      this.weatherConvert(response);
+      this.convertCondition(response);
       this.setState({isShowingWeather : true})
     
     }
@@ -42,6 +45,49 @@ class Weatherstatus extends Component{
       this.setState({condition: response.currently.icon})
     }
 
+    convertCondition(response){
+
+      if(response.currently.icon === 'clear-day'){
+        this.setState({convertedCondtition: 'Clear Day'});
+      }
+
+      else if(response.currently.icon === 'clear-night'){
+        this.setState({convertedCondtition: 'Clear Night'})
+      }
+      else if(response.currently.icon === 'cloudy'){
+        this.setState({convertedCondtition: 'Cloudy'})
+      }
+      else if(response.currently.icon === 'fog'){
+        this.setState({convertedCondtition: 'Fog'})
+      }
+      else if(response.currently.icon === 'partly-cloudy-day'){
+        this.setState({convertedCondtition: 'Partly Cloudy Day'})
+      }
+      else if(response.currently.icon === 'partly-cloudy-night'){
+        this.setState({convertedCondtition: 'Partly Cloudy Night'})
+      }
+      else if(response.currently.icon === 'rain'){
+        this.setState({convertedCondtition: 'Rain'})
+      }
+      else if(response.currently.icon === 'snow'){
+        this.setState({convertedCondtition: 'Snow'})
+      }
+      else if(response.currently.icon === 'thunderstorm'){
+        this.setState({convertedCondtition: 'Thunderstorm'})
+      }
+      else if(response.currently.icon === 'tornado'){
+        this.setState({convertedCondtition: 'Tornado'})
+      }
+      else if(response.currently.icon === 'sleet'){
+        this.setState({convertedCondtition: 'Sleet'})
+      }
+      else if(response.currently.icon === 'hail'){
+        this.setState({convertedCondtition: 'Hail'})
+      }
+      else if(response.currently.icon === 'wind'){
+        this.setState({convertedCondtition: 'Wind'})
+      }
+    }
  
 
     removeWeather(){
@@ -58,6 +104,7 @@ class Weatherstatus extends Component{
         <Weatherinfo 
         temp = {this.state.temp}
         condition = {this.state.condition}
+        convertedCondition = {this.state.convertedCondtition}
         precip = {this.state.precip}
         removeWeather ={this.removeWeather}/>
            
