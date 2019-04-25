@@ -16,11 +16,11 @@ export default class Weatherform extends Component{
 
       getWeather(){
 
-        if (this.state.place !== null){
-            if(this.state.place.coordinates !== ''){
+        if (this.state.place !== null && this.state.place.coordinates !== ''){
+            
         const geoloc = this.state.place.coordinates.lat + ',' + this.state.place.coordinates.lng;
         this.props.weatherFetch(geoloc);}
-            }
+
 
         else{
             alert('Please enter a valid location')
@@ -51,7 +51,7 @@ render(){
         
         <div className="button">
         <div className="col-12">
-        <button onClick={this.getWeather} type="button" className="btn btn-outline-primary">Get the weather</button>
+        <button onClick={this.getWeather} type="button" className="btn btn-outline-primary">Get the Weather</button>
         </div>
         </div>
         </div>

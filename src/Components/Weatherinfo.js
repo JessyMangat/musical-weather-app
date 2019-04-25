@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Music from './Music';
 
 
 export default class Weatherinfo extends Component{
@@ -24,6 +25,12 @@ export default class Weatherinfo extends Component{
         <div className="button row">
         <div className="col-12">
         <button onClick={this.props.removeWeather} type="button" className="btn btn-outline-primary">Try Another Location</button>
+        </div>
+        </div>
+        <div className ="row">
+        <div className = "col-4">
+        <Music 
+        playlist = {this.props.playlist}/>
         </div>
         </div>
         </div>
