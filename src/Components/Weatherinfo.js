@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Music from './Music';
+import Player from './Player';
 
 
 export default class Weatherinfo extends Component{
@@ -29,7 +29,7 @@ export default class Weatherinfo extends Component{
         </div>
         <div className ="row">
         <div className = "col-4">
-        <Music 
+        <Player 
         playlist = {this.props.playlist}/>
         </div>
         </div>
