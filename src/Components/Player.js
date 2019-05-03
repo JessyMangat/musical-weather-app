@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import sadSonglist from './SadSongs';
 import happySonglist from './HappySongs';
+import snowSonglist from './SnowSongs';
+import mellowSonglist from './MellowSongs';
 
 
 class Player extends Component {
@@ -18,8 +20,7 @@ class Player extends Component {
             currentTime: '00:00',
             totalTime: '00:00',
             loop: false,
-            shuffle: false,
-            value: "Sad"
+            shuffle: false
         }
         this.history = [];
         this.player = new Audio();
@@ -35,8 +36,20 @@ class Player extends Component {
     }
     startPlayer(){
         let currentSong;
-        (this.state.value === "Happy" ? currentSong = happySonglist[this.state.currentIndex] : currentSong = sadSonglist[this.state.currentIndex] )
-        this.player.src = currentSong.src;
+        if (this.props.mood === "Happy"){
+            currentSong = happySonglist[this.state.currentIndex]}
+            
+        else if(this.props.mood === "Rain") {
+            currentSong = sadSonglist[this.state.currentIndex] }
+
+            else if(this.props.mood === "Mellow") {
+                currentSong = mellowSonglist[this.state.currentIndex] }
+
+                else if(this.props.mood === "Snow") {
+                    currentSong = snowSonglist[this.state.currentIndex] }
+        
+        
+            this.player.src = currentSong.src;
         this.setState({
             currentTitle: currentSong.title,
             currentArtist: currentSong.artistname,
@@ -58,7 +71,19 @@ class Player extends Component {
 
    playNext(){
        let songlist;
-    (this.state.value === "Happy" ? songlist = happySonglist: songlist = sadSonglist )
+    if (this.props.mood === "Happy"){
+            songlist = happySonglist
+    }
+        else if(this.props.mood === "Rain") {
+            songlist = sadSonglist }
+
+            else if(this.props.mood === "Mellow") {
+                songlist = mellowSonglist }
+
+                else if(this.props.mood === "Snow") {
+                    songlist = snowSonglist }
+
+                    
         if(this.state.shuffle){
             this.history.push(this.state.currentIndex);
             this.setState({currentIndex: Math.floor(Math.random() * songlist.length)}, function(){
@@ -130,6 +155,7 @@ class Player extends Component {
         })
     }
     componentDidMount(){
+        console.log(this.props.mood)
         const that = this;
         this.startPlayer();
         this.player.addEventListener('volumechange', function() {

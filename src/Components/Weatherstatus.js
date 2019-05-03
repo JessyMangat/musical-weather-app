@@ -13,9 +13,10 @@ class Weatherstatus extends Component{
         temp: null,
         condition: null,
         convertedCondtition: null,
-        precip: null,
-        playlist : null};
+        mood : "",
+        precip: null};
         this.removeWeather = this.removeWeather.bind(this);
+        this.setMood = this.setMood.bind(this);
         this.weatherConvert = this.weatherConvert.bind(this);
         this.convertCondition = this.convertCondition.bind(this);
     }
@@ -27,6 +28,8 @@ class Weatherstatus extends Component{
       const response = await api_call.json();
       this.weatherConvert(response);
       this.convertCondition(response);
+      this.setMood(response);
+      alert(this.state.mood)
       this.setState({isShowingWeather : true})
     
     }
@@ -50,60 +53,91 @@ class Weatherstatus extends Component{
 
       if(response.currently.icon === 'clear-day'){
         this.setState({convertedCondtition: 'Clear Day'});
-        this.setState({playlist : 'PLWjb-Xtc3i8sqIKXxc2jR3a7Ilbh0HEbV'});
       }
 
       else if(response.currently.icon === 'clear-night'){
         this.setState({convertedCondtition: 'Clear Night'})
-        this.setState({playlist : 'PLWjb-Xtc3i8sebhXhZJroFWL7pZXqPZeh'});
       }
       else if(response.currently.icon === 'cloudy'){
         this.setState({convertedCondtition: 'Cloudy'})
-        this.setState({playlist : ''});
       }
       else if(response.currently.icon === 'fog'){
         this.setState({convertedCondtition: 'Fog'})
-        this.setState({playlist : ''});
       }
       else if(response.currently.icon === 'partly-cloudy-day'){
         this.setState({convertedCondtition: 'Partly Cloudy Day'})
-        this.setState({playlist : ''});
       }
       else if(response.currently.icon === 'partly-cloudy-night'){
         this.setState({convertedCondtition: 'Partly Cloudy Night'})
-        this.setState({playlist : 'PLWjb-Xtc3i8ulVbQ4A4492bY5d-veP8l3'});
       }
       else if(response.currently.icon === 'rain'){
         this.setState({convertedCondtition: 'Rain'})
-        this.setState({playlist : 'PLWjb-Xtc3i8ueUM-5eM5ySiF_pNt4jbwN'});
       }
       else if(response.currently.icon === 'snow'){
         this.setState({convertedCondtition: 'Snow'})
-        this.setState({playlist : 'PLWjb-Xtc3i8t0h3r0kB6LsJ3u8M76A2vy'});
       }
       else if(response.currently.icon === 'thunderstorm'){
         this.setState({convertedCondtition: 'Thunderstorm'})
-        this.setState({playlist : 'PLWjb-Xtc3i8vv8YHpnuVO-HcX4p7Tor-4'});
       }
       else if(response.currently.icon === 'tornado'){
         this.setState({convertedCondtition: 'Tornado'})
-        this.setState({playlist : 'PLWjb-Xtc3i8v97RoyjNV1UKfeL4FbGqWw'});
       }
       else if(response.currently.icon === 'sleet'){
         this.setState({convertedCondtition: 'Sleet'})
-        this.setState({playlist : 'PLWjb-Xtc3i8t0h3r0kB6LsJ3u8M76A2vy'});
       }
       else if(response.currently.icon === 'hail'){
         this.setState({convertedCondtition: 'Hail'})
-        this.setState({playlist : 'PLWjb-Xtc3i8t0h3r0kB6LsJ3u8M76A2vy'});
       }
       else if(response.currently.icon === 'wind'){
         this.setState({convertedCondtition: 'Windy'})
-        this.setState({playlist : 'PLWjb-Xtc3i8v97RoyjNV1UKfeL4FbGqWw'});
       }
     }
 
-   
+   setMood(response){
+
+    if(response.currently.icon === 'clear-day'){
+      this.setState({mood: 'Happy'});
+    }
+
+    else if(response.currently.icon === 'clear-night'){
+      this.setState({mood: 'Happy'})
+    }
+    else if(response.currently.icon === 'cloudy'){
+      this.setState({mood: 'Mellow'})
+    }
+    else if(response.currently.icon === 'fog'){
+      this.setState({mood: 'Mellow'})
+    }
+    else if(response.currently.icon === 'partly-cloudy-day'){
+      this.setState({mood: 'Happy'})
+    }
+    else if(response.currently.icon === 'partly-cloudy-night'){
+      this.setState({mood: 'Happy'})
+    }
+    else if(response.currently.icon === 'rain'){
+      this.setState({mood: 'Rain'})
+    }
+    else if(response.currently.icon === 'snow'){
+      this.setState({mood: 'Snow'})
+    }
+    else if(response.currently.icon === 'thunderstorm'){
+      this.setState({mood: 'Rain'})
+    }
+    else if(response.currently.icon === 'tornado'){
+      this.setState({mood: 'Rain'})
+    }
+    else if(response.currently.icon === 'sleet'){
+      this.setState({mood: 'Snow'})
+    }
+    else if(response.currently.icon === 'hail'){
+      this.setState({mood: 'Snow'})
+    }
+    else if(response.currently.icon === 'wind'){
+      this.setState({mood: 'Mellow'})
+    }
+    
+
+   }
 
     removeWeather(){
       this.setState({temp: null})
@@ -117,7 +151,7 @@ class Weatherstatus extends Component{
       <div className ="App">      
       {this.state.isShowingWeather ? (
         <Weatherinfo 
-        playlist = {this.state.playlist}
+        mood = {this.state.mood}
         temp = {this.state.temp}
         condition = {this.state.condition}
         convertedCondition = {this.state.convertedCondtition}
@@ -135,3 +169,54 @@ class Weatherstatus extends Component{
 
 
 export default Weatherstatus;
+
+/*  if(this.state.temp >= 20 && this.state.convertedCondtition === "Clear Day"){
+      this.setState({ mood : 'Summer Day'})
+    }
+    else if(this.state.temp >= 20 && this.state.convertedCondtition === "Partly Cloudy Day"){
+      this.setState({ mood : 'Summer Day'})
+    }
+    else if (this.state.temp >= 15 && this.state.convertedCondtition === "Clear Night"){
+      this.setState({ mood : "Summer Night"})
+    }
+    else if (this.state.temp >= 15 && this.state.convertedCondtition === "Partly Cloudy Night"){
+      this.setState({ mood : "Summer Night"})
+    }
+    else if (this.state.convertCondition === "Rain"){
+      this.setState({ mood : "Rain"})
+    }
+    else if(this.state.temp <= 0 && this.state.convertedCondtition === "Clear Day"){
+      this.setState({ mood : 'Winter Day'})
+    }
+    else if(this.state.temp <= 0 && this.state.convertedCondtition === "Partly Cloudy Day"){
+      this.setState({ mood : 'Winter Day'})
+    }
+    else if (this.state.temp <= 0 && this.state.convertedCondtition === "Clear Night"){
+      this.setState({ mood : "Winter Night"})
+    }
+    else if (this.state.temp <= 0 && this.state.convertedCondtition === "Partly Cloudy Night"){
+      this.setState({ mood : "Winter Night"})
+    }
+    else if(this.state.convertedCondtition === "Snow"){
+      this.setState({ mood : "Snow"})
+    }
+    else if(this.state.convertedCondtition === "Sleet"){
+      this.setState({ mood : "Snow"})
+    }
+    else if(this.state.convertedCondtition === "Hail"){
+      this.setState({ mood : "Snow"})
+    }
+    else if(this.state.convertedCondtition === "Thunderstorm"){
+      this.setState({ mood : "Thunderstorm"})
+    }
+    else if(this.setState.convertedCondition === "Cloudy"){
+      this.setState({ mood : "Cloudy"})
+    }
+    else if(this.setState.convertedCondition === "Fog"){
+      this.setState({ mood : "Fog"})
+    }
+    else {
+      this.setState({ mood : "Other"})
+    }
+
+    */

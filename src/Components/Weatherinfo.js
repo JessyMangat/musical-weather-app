@@ -27,12 +27,13 @@ export default class Weatherinfo extends Component{
         <button onClick={this.props.removeWeather} type="button" className="btn btn-outline-primary">Try Another Location</button>
         </div>
         </div>
-        <div className ="row">
-        <div className = "col-4">
+        <div className="row mood">
+        <div className="col-12">
+        <h2>Now playing your {this.props.mood} playlist</h2>
+        </div>
+        </div>
         <Player 
-        playlist = {this.props.playlist}/>
-        </div>
-        </div>
+        mood = {this.props.mood}/>
         </div>
          </div>
             );
