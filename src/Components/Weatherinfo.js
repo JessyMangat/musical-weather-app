@@ -22,16 +22,13 @@ export default class Weatherinfo extends Component{
         <h2>Precipitation: {this.props.precip}%</h2>
         </div>
         </div>
-        <div className="button row">
-        <button onClick={this.props.removeWeather} type="button" className="btn btn-outline-primary">Try Another Location</button>
-        </div>
         <div className="row mood">
         <div className="col-12">
         <h2>Now playing your {this.props.mood} playlist</h2>
         </div>
         </div>
         <Player 
-        isShowingWeather = {this.props.isShowingWeather}
+        removeWeather = {this.props.removeWeather}
         mood = {this.props.mood}/>
         </div>
          </div>

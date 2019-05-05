@@ -33,6 +33,7 @@ class Player extends Component {
         this.toggleVolume = this.toggleVolume.bind(this);
         this.toggleLoop = this.toggleLoop.bind(this);
         this.toggleShuffle = this.toggleShuffle.bind(this);
+        this.pauseOnToggle = this.pauseOnToggle.bind(this);
     }
     startPlayer(){
         let currentSong;
@@ -69,6 +70,10 @@ class Player extends Component {
 
     }
 
+    pauseOnToggle(){
+        this.player.pause();
+        this.props.removeWeather();
+    }
 
    playNext(){
        let songlist;
@@ -171,9 +176,12 @@ class Player extends Component {
             }
         })
     }
-    render() {
-
+    render() { 
         return (
+            <div className = "wrapper">
+            <div className="button row">
+            <button onClick={this.pauseOnToggle} type="button" className="btn btn-outline-primary">Try Another Location</button>
+            </div>
             <div id="player">
                 <div className="now-playing">
                     <img src={this.state.currentImage} alt={this.state.currentTitle} />
@@ -212,6 +220,7 @@ class Player extends Component {
                         <div style={{width: this.state.volumebar + '%'}}></div>
                     </div>
                 </div>
+            </div>
             </div>
         );
     }

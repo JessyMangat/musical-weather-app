@@ -153,7 +153,6 @@ class Weatherstatus extends Component{
         <Weatherinfo 
         mood = {this.state.mood}
         temp = {this.state.temp}
-        isShowingWeather = {this.state.isShowingWeather}
         condition = {this.state.condition}
         convertedCondition = {this.state.convertedCondtition}
         precip = {this.state.precip}
