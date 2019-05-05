@@ -23,9 +23,7 @@ export default class Weatherinfo extends Component{
         </div>
         </div>
         <div className="button row">
-        <div className="col-12">
         <button onClick={this.props.removeWeather} type="button" className="btn btn-outline-primary">Try Another Location</button>
-        </div>
         </div>
         <div className="row mood">
         <div className="col-12">
@@ -33,6 +31,7 @@ export default class Weatherinfo extends Component{
         </div>
         </div>
         <Player 
+        isShowingWeather = {this.props.isShowingWeather}
         mood = {this.props.mood}/>
         </div>
          </div>

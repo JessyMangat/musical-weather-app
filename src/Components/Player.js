@@ -66,6 +66,7 @@ class Player extends Component {
             this.player.pause();
             this.setState({isplaying: false})
         }
+
     }
 
 
@@ -155,7 +156,6 @@ class Player extends Component {
         })
     }
     componentDidMount(){
-        console.log(this.props.mood)
         const that = this;
         this.startPlayer();
         this.player.addEventListener('volumechange', function() {
@@ -172,6 +172,7 @@ class Player extends Component {
         })
     }
     render() {
+
         return (
             <div id="player">
                 <div className="now-playing">

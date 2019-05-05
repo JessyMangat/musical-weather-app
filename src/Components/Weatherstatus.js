@@ -29,8 +29,7 @@ class Weatherstatus extends Component{
       this.weatherConvert(response);
       this.convertCondition(response);
       this.setMood(response);
-      alert(this.state.mood)
-      this.setState({isShowingWeather : true})
+      this.setState({isShowingWeather : true});
     
     }
 
@@ -44,6 +43,7 @@ class Weatherstatus extends Component{
 
       let precipPercent = response.currently.precipProbability;
       precipPercent = precipPercent * 100;
+      precipPercent = Math.round(precipPercent);
       this.setState ({precip: precipPercent});
 
       this.setState({condition: response.currently.icon})
@@ -153,6 +153,7 @@ class Weatherstatus extends Component{
         <Weatherinfo 
         mood = {this.state.mood}
         temp = {this.state.temp}
+        isShowingWeather = {this.state.isShowingWeather}
         condition = {this.state.condition}
         convertedCondition = {this.state.convertedCondtition}
         precip = {this.state.precip}
@@ -170,53 +171,3 @@ class Weatherstatus extends Component{
 
 export default Weatherstatus;
 
-/*  if(this.state.temp >= 20 && this.state.convertedCondtition === "Clear Day"){
-      this.setState({ mood : 'Summer Day'})
-    }
-    else if(this.state.temp >= 20 && this.state.convertedCondtition === "Partly Cloudy Day"){
-      this.setState({ mood : 'Summer Day'})
-    }
-    else if (this.state.temp >= 15 && this.state.convertedCondtition === "Clear Night"){
-      this.setState({ mood : "Summer Night"})
-    }
-    else if (this.state.temp >= 15 && this.state.convertedCondtition === "Partly Cloudy Night"){
-      this.setState({ mood : "Summer Night"})
-    }
-    else if (this.state.convertCondition === "Rain"){
-      this.setState({ mood : "Rain"})
-    }
-    else if(this.state.temp <= 0 && this.state.convertedCondtition === "Clear Day"){
-      this.setState({ mood : 'Winter Day'})
-    }
-    else if(this.state.temp <= 0 && this.state.convertedCondtition === "Partly Cloudy Day"){
-      this.setState({ mood : 'Winter Day'})
-    }
-    else if (this.state.temp <= 0 && this.state.convertedCondtition === "Clear Night"){
-      this.setState({ mood : "Winter Night"})
-    }
-    else if (this.state.temp <= 0 && this.state.convertedCondtition === "Partly Cloudy Night"){
-      this.setState({ mood : "Winter Night"})
-    }
-    else if(this.state.convertedCondtition === "Snow"){
-      this.setState({ mood : "Snow"})
-    }
-    else if(this.state.convertedCondtition === "Sleet"){
-      this.setState({ mood : "Snow"})
-    }
-    else if(this.state.convertedCondtition === "Hail"){
-      this.setState({ mood : "Snow"})
-    }
-    else if(this.state.convertedCondtition === "Thunderstorm"){
-      this.setState({ mood : "Thunderstorm"})
-    }
-    else if(this.setState.convertedCondition === "Cloudy"){
-      this.setState({ mood : "Cloudy"})
-    }
-    else if(this.setState.convertedCondition === "Fog"){
-      this.setState({ mood : "Fog"})
-    }
-    else {
-      this.setState({ mood : "Other"})
-    }
-
-    */

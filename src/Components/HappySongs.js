@@ -1,7 +1,7 @@
 export default [
     {
         artistname: "Pharrell Williams",
-        image: "Happy.jpg",
+        image: "images/Happy.jpg",
         title: "Happy",
         src: "/audio/Happy/Pharrell Williams - Happy.mp3"
     }
